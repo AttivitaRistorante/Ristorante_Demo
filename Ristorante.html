@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ristorante Italiano - Template Professionale Responsive">
+    <title>Ristorante Italiano - Benvenuti</title>
+    
+    <style>
+        /* VARIABILI CSS - PERSONALIZZABILI */
+        :root {
+            --primary-color: #c41e3a;
+            --secondary-color: #ffffff;
+            --accent-color: #2d5016;
+            --text-dark: #2c2c2c;
+            --text-light: #ffffff;
+            --bg-light: #f5f5f5;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .header-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .decoration-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--text-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* NAVIGAZIONE */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text-dark);
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        /* SEZIONE BENVENUTO */
+        .welcome {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .welcome-text p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .welcome-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .welcome-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .decoration-line {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            margin: 30px 0;
+        }
+
+        /* SEZIONE MENU */
+        .menu-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .menu-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .menu-category {
+            margin-bottom: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .menu-item-price {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .menu-item-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* SEZIONE SPECIALITÀ */
+        .specialties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specialties-image {
+            order: 2;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .specialties-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .specialties-content {
+            order: 1;
+        }
+
+        .specialties-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .specialties-content p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .special-highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* SEZIONE CONTATTI */
+        .contact-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .welcome, .specialties {
+                grid-template-columns: 1fr;
+            }
+
+            .specialties-image {
+                order: 1;
+            }
+
+            .specialties-content {
+                order: 2;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                min-width: 100%;
+            }
+
+            .welcome-text h2, 
+            .specialties-content h2,
+            .menu-title h2,
+            .contact-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.95rem;
+            }
+
+            .header-decoration {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="header-content">
+            <h1> Ristorante Italiano</h1>
+            <p>Autenticità, tradizione e passione in ogni piatto</p>
+            
+            <div class="header-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+                <div class="decoration-circle"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGAZIONE -->
+    <nav id="navigation">
+        <ul>
+            <li><a href="#welcome">Benvenuti</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specialties">Specialità</a></li>
+            <li><a href="#contact">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- SEZIONE BENVENUTO -->
+    <section id="welcome" class="container">
+        <div class="welcome">
+            <div class="welcome-text">
+                <h2>Benvenuti nel nostro ristorante</h2>
+                <p>
+                    Benvenuti in un'oasi di gusti autentici dove la cucina italiana tradizionale incontra 
+                    l'innovazione culinaria moderna. Da oltre 20 anni, il nostro ristorante si impegna 
+                    nel preservare le ricette tramandate dalle nostre nonne, utilizzando solo ingredienti 
+                    freschi e locali di massima qualità.
+                </p>
+                <p>
+                    Ogni piatto è preparato con amore e dedizione dal nostro team di chef esperti, 
+                    che selezionano personalmente le materie prime dai migliori fornitori italiani.
+                </p>
+                <div class="decoration-line"></div>
+                <p>
+                    Vieni a scoprire il vero sapore dell'Italia nella nostra accogliente sala da pranzo.
+                </p>
+            </div>
+
+                <div class="welcome-image">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880" 
+                        alt="Ristorante italiano interno">
+                </div>
+            </div>
+    </section>
+
+    <!-- SEZIONE MENU -->
+    <section id="menu" class="container">
+        <div class="menu-title">
+            <h2>Il Nostro Menu</h2>
+            <div class="title-underline"></div>
+            <p style="margin-top: 15px; color: #666;">Scopri i nostri piatti preparati con ingredienti genuini</p>
+        </div>
+
+        <!-- CATEGORIA ANTIPASTI -->
+        <div class="menu-category">
+            <h3>Antipasti</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://cdn.pixabay.com/photo/2022/12/30/11/17/bruschetta-7686666_960_720.jpg" alt="Bruschetta">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Bruschetta al Pomodoro</span>
+                            <span class="menu-item-price">€ 7,00</span>
+                        </div>
+                        <p class="menu-item-description">Pane tostato con pomodori freschi, aglio, basilico e olio extravergine d'oliva.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://cdn.pixabay.com/photo/2018/08/29/09/21/dish-3639491_960_720.jpg" alt="Caprese">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Caprese</span>
+                            <span class="menu-item-price">€ 8,50</span>
+                        </div>
+                        <p class="menu-item-description">Mozzarella fresca, pomodori maturi, basilico e olio di oliva DOP.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://static.planeat.eco/media/planeat_it_mi/item_pics/prosciutto-e-melone-600x400.jpg" alt="Prosciutto">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Prosciutto e Melone</span>
+                            <span class="menu-item-price">€ 9,00</span>
+                        </div>
+                        <p class="menu-item-description">Prosciutto di Parma DOP accompagnato da melone cantalupo fresco.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIA PRIMI -->
+        <div class="menu-category">
+            <h3>Piatti Principali</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://cdn.pixabay.com/photo/2018/11/10/00/38/pasta-3805772_960_720.jpg" alt="Carbonara">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Spaghetti Carbonara</span>
+                            <span class="menu-item-price">€ 14,00</span>
+                        </div>
+                        <p class="menu-item-description">Ricetta romana originale con guanciale, uova e pecorino romano.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://www.buitoni.it/sites/default/files/srh_recipes/cfdb9e74f2ea70b33cbdfeb707e865ca.jpg" alt="Risotto">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Risotto ai Funghi Porcini</span>
+                            <span class="menu-item-price">€ 15,50</span>
+                        </div>
+                        <p class="menu-item-description">Risotto Carnaroli con funghi porcini freschi e tartufo grattugiato.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://thumbs.dreamstime.com/b/tomato-ground-beef-lasagne-cheese-layered-sheets-traditional-italian-pasta-served-white-plate-dark-64979694.jpg" alt="Lasagna">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Lasagna della Nonna</span>
+                            <span class="menu-item-price">€ 13,00</span>
+                        </div>
+                        <p class="menu-item-description">Lasagna bolognese tradizionale con ragù fatto in casa e besciamella.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIA DOLCI -->
+        <div class="menu-category">
+            <h3>Dolci</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop" alt="Tiramisu">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Tiramisu Classico</span>
+                            <span class="menu-item-price">€ 6,50</span>
+                        </div>
+                        <p class="menu-item-description">Il dolce italiano per eccellenza con cacao, mascarpone e savoiardi.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Panna Cotta">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Panna Cotta ai Frutti di Bosco</span>
+                            <span class="menu-item-price">€6,00</span>
+                        </div>
+                        <p class="menu-item-description">Crema vellutata con frutti di bosco freschi e coulis di lampone.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-image">
+                        <img src="https://blog.giallozafferano.it/ricettepanedolci/wp-content/uploads/2020/07/semifreddo-al-pistacchio-1.jpeg" alt="Semifreddo">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <span class="menu-item-name">Semifreddo al Pistacchio</span>
+                            <span class="menu-item-price">€ 5,50</span>
+                        </div>
+                        <p class="menu-item-description">Semifreddo cremoso al pistacchio di Bronte con granella di pistacchio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE SPECIALITÀ -->
+    <section id="specialties" class="container">
+        <div class="specialties">
+            <div class="specialties-content">
+                <h2>Specialità della Casa</h2>
+                <p>
+                    La nostra specialità più celebre è l'<strong>"Osso Buco alla Milanese"</strong>, 
+                    una ricetta tramandata dalla nonna del nostro chef più anziano. Questo piatto rappresenta 
+                    il cuore della cucina italiana lombarda.
+                </p>
+                <div class="special-highlight">
+                    "Ogni domenica, i nostri clienti più fedeli prenotano con settimane di anticipo per gustare 
+                    questo capolavoro della tradizione culinaria italiana."
+                </div>
+                <p>
+                    Preparato con zampa di vitello brasata lentamente in vino bianco secco, accompagnata da 
+                    verdure fresche e servita con risotto alla milanese fatto con lo zafferano di qualità.
+                </p>
+                <p style="margin-top: 20px; font-weight: 600; color: var(--primary-color);">
+                    Disponibilità: Solo su prenotazione • Porzione: Per 2 persone • Prezzo: € 45,00
+                </p>
+            </div>
+
+            <div class="specialties-image">
+                <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=500&h=400&fit=crop" alt="Osso Buco alla Milanese">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE CONTATTI -->
+    <section id="contact" class="container">
+        <div class="contact-title">
+            <h2>Contattaci</h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📍 Indirizzo</h3>
+                <p>Via Roma, 123</p>
+                <p>20100 Milano (MI)</p>
+                <p>Italia</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>📞 Telefono</h3>
+                <p><a href="tel:+390212345678">+39 02 1234 5678</a></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Lun-Ven: 10:00-23:00</p>
+                <p style="font-size: 0.9rem;">Sab-Dom: 11:00-23:30</p>
+            </div>
+
+            <div class="contact-card">
+                <h3>✉️ Email</h3>
+                <p><a href="mailto:info@ristoranteitaliano.it">info@ristoranteitaliano.it</a></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Risposta entro 24 ore</p>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Ristorante Italiano</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    Da oltre 20 anni portiamo la vera cucina italiana sulla vostra tavola. 
+                    Autenticità e qualità in ogni piatto.
+                </p
